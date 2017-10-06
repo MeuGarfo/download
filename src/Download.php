@@ -32,21 +32,20 @@ class Download{
             curl_setopt($ch,CURLOPT_COOKIE, $cookie_string);
         }
         if($params){
-            $postData = '';
-            //create name value pairs seperated by &
+            $post_array = '';
             foreach($params as $k => $v)
             {
-                $postData .= $k . '='.$v.'&';
+                $post_array .= $k . '='.$v.'&';
             }
-            $postData = rtrim($postData, '&');
+            $post_array = rtrim($post_array, '&');
         }
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, count($postData));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_POST, count($post_array));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_array);
         curl_setopt($ch,CURLOPT_FOLLOWLOCATION,TRUE);
-        curl_setopt($ch,CURLOPT_MAXREDIRS,3);//only 3 redirects
+        curl_setopt($ch,CURLOPT_MAXREDIRS,3);
         $output=curl_exec($ch);
         curl_close($ch);
         return $output;
