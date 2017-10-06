@@ -1,0 +1,11 @@
+{
+    "name": "basic/download",
+    "description": "Sistema b\u00e1sico de download",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Basic\\": "/src"
+        }
+    }
+}
