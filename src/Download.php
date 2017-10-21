@@ -17,7 +17,7 @@ class Download
     * @param  boolean $cookie Cookies
     * @return string          Resposta RAW
     */
-    public function get(string $url, string $agent=null, array $cookie=null):string
+    public function get(string $url, string $agent=null, array $cookie=null)
     {
         $ch = curl_init();
         if ($agent) {
@@ -44,7 +44,7 @@ class Download
     * @param  boolean $cookie Cookies da requisição
     * @return string          Resposta RAW
     */
-    public function post(string $url, array $params=null, array $agent=null, array $cookie=null):string
+    public function post(string $url, array $params=null, array $agent=null, array $cookie=null)
     {
         $ch = curl_init();
         if ($agent) {
